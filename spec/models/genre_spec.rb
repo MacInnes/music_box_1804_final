@@ -19,5 +19,14 @@ describe Genre do
 
       expect(genre.average_rating).to eq(4)
     end
+    it 'finds the song with the highest rating' do
+      genre = Genre.create(name: "Reggae")
+      artist = Artist.create(name: "Bob Marley")
+      song_1 = genre.songs.create(title: "One Love", length: 213, play_count: 3487, rating: 5, artist_id: artist.id)
+      song_2 = genre.songs.create(title: "Redemption Song", length: 213, play_count: 3487, rating: 3, artist_id: artist.id)
+      song_3 = genre.songs.create(title: "War", length: 213, play_count: 3487, rating: 2, artist_id: artist.id)
+
+      expect(genre.highest_rating).to eq(song_1)
+    end
   end
 end
