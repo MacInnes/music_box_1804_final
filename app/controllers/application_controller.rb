@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  helper_method :current_admin?
+
   before_action :build_cart
 
   def current_user

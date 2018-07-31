@@ -1,12 +1,3 @@
-# User Story 2:
-#
-# As a Visitor,
-#   When I visit the genre index page,
-#     I see all genres in the database.
-#
-# Testing requirements:
-# - users should see at least 2 genres listed on the page
-
 require 'rails_helper'
 
 describe 'Visitor' do
