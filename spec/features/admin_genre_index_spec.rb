@@ -1,15 +1,3 @@
-# User Story 4:
-#
-# As an admin user,
-#   When I visit the genre index page,
-#     And I fill out the form with a new genre's name and submit that form,
-#   I return to the genre index page,
-#     And I see all previous genres and the new genre I have just created.
-#
-# Testing requirements:
-# - I should see at least 2 previous genres listed plus the new genre
-
-
 require 'rails_helper'
 
 describe 'Admin' do
