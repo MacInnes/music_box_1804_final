@@ -35,7 +35,7 @@ describe 'Visitor' do
 
       expect(page).to have_content("Average rating: 3")
     end
-    it 'sees the rating of each song, and the highest rating' do
+    it 'sees the highest rated song' do
       genre = Genre.create(name: "Reggae")
       artist = Artist.create(name: "Bob Marley")
       song_1 = genre.songs.create(title: "One Love", length: 213, play_count: 3487, rating: 4, artist_id: artist.id)
@@ -46,6 +46,18 @@ describe 'Visitor' do
 
       expect(page).to have_content("Highest rated song: #{song_2.title}")
       expect(page).to have_content("Rating: #{song_2.rating}")
+    end
+    it 'sees the lowest rated song' do
+      genre = Genre.create(name: "Reggae")
+      artist = Artist.create(name: "Bob Marley")
+      song_1 = genre.songs.create(title: "One Love", length: 213, play_count: 3487, rating: 4, artist_id: artist.id)
+      song_2 = genre.songs.create(title: "Redemption Song", length: 213, play_count: 3487, rating: 5, artist_id: artist.id)
+      song_3 = genre.songs.create(title: "War", length: 213, play_count: 3487, rating: 1, artist_id: artist.id)
+
+      visit genre_path(genre)
+
+      expect(page).to have_content("Lowest rated song: #{song_3.title}")
+      expect(page).to have_content("Rating: #{song_3.rating}")
     end
   end
 end

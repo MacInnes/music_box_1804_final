@@ -10,4 +10,8 @@ class Genre < ApplicationRecord
   def highest_rating
     songs.order('rating DESC').first
   end
+
+  def lowest_rating
+    songs.order(:rating).first
+  end
 end
