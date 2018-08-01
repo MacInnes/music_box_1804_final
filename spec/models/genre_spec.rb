@@ -7,6 +7,7 @@ describe Genre do
 
   describe 'relationships' do
     it {should have_many(:songs)}
+    it {should have_many(:song_genres)}
   end
 
   describe 'methods' do
